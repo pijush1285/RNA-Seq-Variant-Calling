@@ -1,21 +1,13 @@
 
 
 ###############################################################################################################################
-# The index is created using teh reference genome provided by Kuntal.
+# The index is created using the reference genome provided by Kuntal.
 STAR --runThreadN 25 \
 --runMode genomeGenerate \
 --genomeDir /data/sata_data/workshop/wsu28/NGC/Gi_02_2021/reference/kuntal_ref/STAR_index \
 --genomeFastaFiles /data/sata_data/workshop/wsu28/NGC/Gi_02_2021/reference/kuntal_ref/ref/GRCh37_latest_genomic.fa \
 --sjdbGTFfile /data/sata_data/workshop/wsu28/NGC/Gi_02_2021/reference/kuntal_ref/gtf/GRCh37_latest_genomicK.gtf
 
-
-
-
-STAR --runThreadN 25 \
---runMode genomeGenerate \
---genomeDir /data/sata_data/workshop/wsu28/NGC/Gi_02_2021/reference/ucsc/STAR_index \
---genomeFastaFiles /data/sata_data/workshop/wsu28/NGC/Gi_02_2021/reference/ucsc/ref/hg19.fa \
---sjdbGTFfile /data/sata_data/workshop/wsu28/NGC/Gi_02_2021/reference/ucsc/gtf/hg19.knownGene.gtf
 
 
 #Index the reference genome
@@ -26,7 +18,7 @@ genomeIndex=/data/sata_data/workshop/wsu28/NGC/Gi_02_2021/reference/STAR/STAR_in
 STAR --runMode genomeGenerate --genomeDir $genomeIndex --genomeFastaFiles hg19.fna --runThreadN 25
 ###############################################################################################################################
 
-
+#Location of the raw dataset.
 r1=/data/sata_data/workshop/wsu28/NGC/Gi_02_2021/AmitRay_RAW/EX013/EX013_HyperPrep_H75MMDRXY_L1_R1.fastq.gz
 r2=/data/sata_data/workshop/wsu28/NGC/Gi_02_2021/AmitRay_RAW/EX013/EX013_HyperPrep_H75MMDRXY_L1_R2.fastq.gz
 
@@ -41,7 +33,6 @@ STAR --genomeDir /data/sata_data/workshop/wsu28/NGC/Gi_02_2021/reference/kuntal_
 --runThreadN 4
 
 ### convert fastq to bam ###
-
 picard FastqToSam \
        F1=$r1 \
        F2=$r2 \
@@ -50,10 +41,9 @@ picard FastqToSam \
        RG=EX013
 
 
-
 #######################################################################################################################
 
-#Creating the index file
+#Creating the index file of unaligned bam file. The index is not created.
 picard BuildBamIndex \
     I=EX013_unaligned.bam
 
