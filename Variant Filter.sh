@@ -34,20 +34,20 @@ bcftools stats filt7.vcf | head -31
 ################################################################################
 #Kuntal used those filter parameter.
 Parameter 	Total Variant	SNP
-RAW VCF	539387	425115
-QUAL > 60	379625	293876
-QD > 20	289239	217994
-AF > 0.5	233702	185238
-DP >= 10	42754	21049
-FS <= 0	36895	20201
+RAW VCF	      539387	425115
+QUAL > 60	    379625	293876
+QD > 20	      289239	217994
+AF > 0.5	    233702	185238
+DP >= 10	     42754	21049
+FS <= 0	       36895	20201
 
 Filter 2
 Parameter	Total Variant	SNP
-RAW VCF	539387	425115
-DP > 20	55174	26394
-AF > 0.1	54214	26096
-QUAL > 40	53759	25844
-FS <= 0	29705	14035
+RAW VCF	      539387	425115
+DP > 20	       55174	26394
+AF > 0.1	     54214	26096
+QUAL > 40	     53759	25844
+FS <= 0	       29705	14035
 
 #################################################################################
 Command:
@@ -98,37 +98,3 @@ path2=/home/pijush/Desktop/NGC/'Dr Amit Roy 16.08.21'/FilterVCF/AnnotateVCF/filt
 java -jar search_dbNSFP41a.jar -i $path1 -o $path2 -v hg19 -s -p
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-....
